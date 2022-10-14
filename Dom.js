@@ -80,28 +80,58 @@ li[2].style.backgroundColor = "green";
 
 //Query selector
 
-let headers = document.querySelector("#main-header");
-headers.style.borderBottom = "solid 4px #ccc";
+// let headers = document.querySelector("#main-header");
+// headers.style.borderBottom = "solid 4px #ccc";
 
-let input = document.querySelector("input");
-input.value = "hello world";
+// let input = document.querySelector("input");
+// input.value = "hello world";
 
 
-let submit = document.querySelector("input[type='submit']");
+// let submit = document.querySelector("input[type='submit']");
 
-submit.value = "SEND";
+// submit.value = "SEND";
 
-let item = document.querySelector(".list-group-item");
-item.style.color = "red";
+// let item = document.querySelector(".list-group-item");
+// item.style.color = "red";
 
-let lastchild = document.querySelector(".list-group-item:last-child");
-lastchild.style.color = "Blue";
+// let lastchild = document.querySelector(".list-group-item:last-child");
+// lastchild.style.color = "Blue";
 
-let secondchild = document.querySelector(".list-group-item:nth-child(2)");
-secondchild.style.backgroundColor = "green";
+// let secondchild = document.querySelector(".list-group-item:nth-child(2)");
+// secondchild.style.backgroundColor = "green";
 
-let thirdchild = document.querySelector(".list-group-item:nth-child(3)");
-thirdchild.style.display = "none";
+
+// let thirdchild = document.querySelector(".list-group-item:nth-child(3)");
+// thirdchild.style.display = "none";
+
+
+
+
+//Query selector all
+
+let titles = document.querySelectorAll(".title");
+
+console.log(titles);
+titles[0].textContent = "Hello";
+
+
+
+let odd = document.querySelectorAll("li:nth-child(odd)");
+let even = document.querySelectorAll("li:nth-child(even)");
+
+for(let i = 0 ; i < odd.length ; i++){
+
+    odd[i].style.backgroundColor = "green";
+    even[i].style.backgroundColor = "#ccc";
+}
+
+ let item = document.querySelectorAll(".list-group-item");
+
+ item[1].style.color = "green";
+
+
+ //Queryselector takes single items
+ //Queryselectorall takes multiple items
 
 
 
