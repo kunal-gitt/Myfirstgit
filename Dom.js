@@ -98,25 +98,11 @@ let lastchild = document.querySelector(".list-group-item:last-child");
 lastchild.style.color = "Blue";
 
 let secondchild = document.querySelector(".list-group-item:nth-child(2)");
-secondchild.style.color = "pink";
+secondchild.style.backgroundColor = "green";
 
+let thirdchild = document.querySelector(".list-group-item:nth-child(3)");
+thirdchild.style = "display-none";
 
-//Query selector all
-
-let titles = document.querySelectorAll(".title");
-
-console.log(titles);
-titles[0].textContent = "Hello";
-
-
-let odd = document.querySelectorAll("li:nth-child(odd)");
-let even = document.querySelectorAll("li:nth-child(even)");
-
-for(let i = 0 ; i < odd.length ; i++){
-
-    odd[i].style.backgroundColor = "#f4f4f4";
-    even[i].style.backgroundColor = "#ccc";
-}
 
 
 
