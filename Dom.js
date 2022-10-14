@@ -101,7 +101,7 @@ let secondchild = document.querySelector(".list-group-item:nth-child(2)");
 secondchild.style.backgroundColor = "green";
 
 let thirdchild = document.querySelector(".list-group-item:nth-child(3)");
-thirdchild.style = "display-none";
+thirdchild.style.display = "none";
 
 
 
