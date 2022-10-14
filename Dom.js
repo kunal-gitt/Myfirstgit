@@ -220,3 +220,14 @@ let h1 = document.querySelector("header h1");
 container.insertBefore(newdiv , h1);
 
 
+let ul = document.querySelector("container .list-group");
+let h2 = document.querySelectorAll("h2");
+
+console.log(h2[1]);
+
+h2[1].insertBefore(newdiv , ul);
+
+
+
+
+
