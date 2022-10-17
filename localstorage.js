@@ -9,20 +9,37 @@ function onsubmit(e){
      e.preventDefault();
 
       let userinput = document.getElementById("username").value;
-      let userpassword = document.getElementById("password").value;
+      let userpassword = document.getElementById("email").value;
+      let userphone = document.getElementById("phone").value;
 
       
-      let myobj = {
+      let userdetails = {
 
            "username" : userinput,
-           "password" : userpassword
+           "email" : useremail,
+           "phone" : userphone
       }
 
-      let myobj_serial = JSON.stringify(myobj);
+      
 
-      localStorage.setItem("myobj" , myobj_serial);
-      localStorage.setItem("username", userinput);
-      localStorage.setItem("password" , userpassword);
+
+    
+
+      let myobj_serial = JSON.stringify(userdetails);
+
+      localStorage.setItem( userdetails.email, myobj_serial);
+
+      
+
+    
+
+
+
+
+
+
+
+
 
 
 }
