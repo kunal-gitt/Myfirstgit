@@ -22,6 +22,10 @@ function addItem(e){
     let newdesc = document.getElementById("item2").value;
 
 
+    localStorage.setItem('itemname' , newitem);
+    localStorage.setItem('itemdesc' , newdesc);
+
+
     let li = document.createElement("li");
 
     li.className = "list-group-item";
@@ -93,7 +97,7 @@ function filterItems(e){
       let itemName = item.firstChild.textContent;
       let itemName2 = item.childNodes[1].textContent;
 
-      console.log(itemName2);
+      console.log( itemName2);
 
       if(itemName.toLowerCase().indexOf(text) != -1 || itemName2.toLowerCase().indexOf(text) != -1){
         item.style.display = 'block';
