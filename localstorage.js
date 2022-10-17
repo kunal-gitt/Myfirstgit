@@ -11,9 +11,16 @@ function onsubmit(e){
       let userinput = document.getElementById("username").value;
       let userpassword = document.getElementById("password").value;
 
-      console.log(userinput);
+      
+      let myobj = {
 
+           "username" : userinput,
+           "password" : userpassword
+      }
 
+      let myobj_serial = JSON.stringify(myobj);
+
+      localStorage.setItem("myobj" , myobj_serial);
       localStorage.setItem("username", userinput);
       localStorage.setItem("password" , userpassword);
 
