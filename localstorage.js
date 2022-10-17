@@ -1,6 +1,7 @@
 let form = document.getElementById("my-form");
 
 
+
 form.addEventListener('submit' , onsubmit);
 
 
@@ -9,8 +10,13 @@ function onsubmit(e){
      e.preventDefault();
 
       let userinput = document.getElementById("username").value;
-      let userpassword = document.getElementById("email").value;
+      let useremail = document.getElementById("email").value;
       let userphone = document.getElementById("phone").value;
+
+
+
+
+      
 
       
       let userdetails = {
@@ -29,6 +35,39 @@ function onsubmit(e){
 
       localStorage.setItem( userdetails.email, myobj_serial);
 
+
+      showNewUserOnScreen(userdetails);
+
+
+
+      
+       function showNewUserOnScreen(user){
+
+            let parentNode = document.getElementById("listOfUser");
+            let childhtml = `<li> ${user.username} - ${user.email} </li>`
+
+             parentNode.innerHTML = parentNode.innerHTML + childhtml;
+       }
+
+       
+       
+      
+         
+        
+     
+
+
+
+
+
+
+
+
+
+      
+
+
+      
       
 
     
