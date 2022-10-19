@@ -33,95 +33,69 @@ function onsubmit(e){
 
       let myobj_serial = JSON.stringify(userdetails);
 
-      console.log(myobj_serial);
-      console.log(userdetails.email);
-
+      
       localStorage.setItem( userdetails.email, myobj_serial);
 
-      let s = localStorage.getItem(userdetails.email);
-
-      console.log(s);
+      
       showNewUserOnScreen(userdetails);
 
 
 
-      
-       function showNewUserOnScreen(user){
+ function showNewUserOnScreen(user) {
 
+
+    document.getElementById("username").value = "";
+    document.getElementById("email").value = "";
+    document.getAnimations('phone').value = "";
+
+             if(localStorage.getItem(user.email) !== null){
+
+                removefromscreen(user.email);
+             }
+            
         
-
             let parentNode = document.getElementById("listOfUser");
-            let childhtml = `<li> ${user.username} - ${user.email}
-                            <button onClick= ()= ${deleteUser(`${user.email}`)}> Delete </button>
-                </li>`;
-
-             parentNode.innerHTML = parentNode.innerHTML + childhtml;
-
-
-            
-       }
-
-
-         function deleteUser(emailId){
-
-                
-                localStorage.removeItem(emailId);
-         }
-
-          
-
-       
-
-
-         
-       //   if(localStorage.getItem(user.email) !== null ){
-
-            //        removeUserFromScreen(user.email);
-            //   }
-
-    //    function removeUserFromScreen(emailId){
-
-    //     let parentNode = document.getElementById("listOfUser");
-    //     let childNodeToBeDeleted = document.getElementById(emailId);
-
-    //       if(childNodeToBeDeleted){
-
-    //         parentNode.removeChild(childNodeToBeDeleted);
-    //       }
-            
-    //    }
-         
-
-       
-       
-      
-         
+            let childhtml = `<li id= ${user.email}> ${user.username} - ${user.email}
+                                    <button onClick = deleteUser('${user.email}')> Delete </button> 
+                                    <button onclick = editUser('${user.email}','${user.username}','${user.phone}')> Edit </button>
+                            </li>`;
         
-     
+        
+            parentNode.innerHTML = parentNode.innerHTML + childhtml;
+          }
 
 
-
-
-
-
-
-
-
-      
-
-
-      
-      
-
+        
     
-
-
-
-
-
-
-
-
-
-
 }
+
+
+function deleteUser(emailId) {
+    localStorage.removeItem(emailId);
+    removefromscreen(emailId);
+
+  }
+
+
+  function editUser(emailId , username , phone){
+
+         document.getElementById("username").value = username;
+         document.getElementById("email").value = emailId;
+         document.getAnimations('phone').value = phone;
+        
+         deleteUser(emailId);
+
+
+  }
+
+  function removefromscreen(emailId){
+
+    let parentNode = document.getElementById("listOfUser");
+    let childnodetobedeleted = document.getElementById(emailId);
+
+    if(childnodetobedeleted){
+
+        parentNode.removeChild(childnodetobedeleted);
+    }
+
+  }
