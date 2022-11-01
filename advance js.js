@@ -109,30 +109,41 @@ class Student {
 
     //deliverable 4
 
-    eligible(){
+    setplacementage(minplacementage){
 
-         if(this.boardmarks > 40){
-            console.log("Eligible");
-         }
-         else{
+        return (minmarks) =>{
 
-            console.log("not eligible");
-         }
+            if(this.boardmarks > minmarks && this.age > minplacementage){
+                console.log(this.name + " is ready for placement");
+
+            }
+            else{
+                
+                console.log(this.name + " is not ready for placement");
+
+            }
+        }
     }
 
 }
 
-
     const s1 = new Student("kunal", 23 , 98894548 , 50);
     const s2 = new Student("rishab", 21 ,9989184 , 60);
-    const s3 = new Student("kartik", 20 , 9811548 , 30);
-    const s4 = new Student("nihal", 24 , 848751515 , 20);
-    const s5 = new Student("kiran", 27 , 4554854 , 90);
+    const s3 = new Student("kartik", 20 , 9811548 ,20);
+    const s4 = new Student("nihal", 24 , 989812 , 20);
+    const s5 = new Student("kiran", 27 , 848447 , 10);
 
 
 
-    s4.eligible();
+    s1.setplacementage(18)(40);
+    s2.setplacementage(18)(40);
+    s3.setplacementage(18)(40);
+    s4.setplacementage(18)(40);
+    s5.setplacementage(18)(40);
     console.log(Student.count);
+
+
+
 
 
     
