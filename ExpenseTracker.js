@@ -22,7 +22,7 @@ function onsubmit(e){
         "amount" : useramount,
         "description" : userdescription,
         "category" : usercategory,
-       // "id" : new Date().getTime()
+        "id" : new Date().getTime()
          
    }
 
@@ -30,7 +30,7 @@ function onsubmit(e){
    let myobj_serial = JSON.stringify(expensedetails);
 
 
-   localStorage.setItem( expensedetails.amount, myobj_serial);
+   localStorage.setItem( expensedetails.id, myobj_serial);
 
    
 
@@ -48,9 +48,9 @@ function onsubmit(e){
             
         
             let parentNode = document.getElementById("listOfUser");
-            let childhtml = `<li id= ${expense.amount}> ${expense.amount} - ${expense.description} - ${expense.category}
-                                    <button onClick = deleteUser('${expense.amount}')> Delete expense </button> 
-                                    <button onclick = editUser('${expense.amount}','${expense.description}','${expense.category}')> Edit expense </button>
+            let childhtml = `<li id= ${expense.id}> ${expense.amount} - ${expense.description} - ${expense.category}
+                                    <button onClick = deleteUser('${expense.id}')> Delete expense </button> 
+                                    <button onclick = editUser('${expense.amount}','${expense.description}','${expense.category}','${expense.id}')> Edit expense </button>
                             </li>`;
         
         
@@ -63,29 +63,29 @@ function onsubmit(e){
     
 }
 
-function deleteUser(amount) {
-    localStorage.removeItem(amount);
-    removefromscreen(amount);
+function deleteUser(id) {
+    localStorage.removeItem(id);
+    removefromscreen(id);
 
   }
 
-  function editUser(amount , description , category){
+  function editUser(amount , description , category ,id){
 
     document.getElementById("amount").value = amount;
     document.getElementById("desc").value = description;
-    document.getAnimations('category').value = category;
+    document.getElementById('category').value = category;
    
-    deleteUser(amount);
+    deleteUser(id);
 
 
 }
 
 
 
-function removefromscreen(amount){
+function removefromscreen(id){
 
     let parentNode = document.getElementById("listOfUser");
-    let childnodetobedeleted = document.getElementById(amount);
+    let childnodetobedeleted = document.getElementById(id);
 
     if(childnodetobedeleted){
 
