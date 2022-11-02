@@ -22,7 +22,7 @@ function onsubmit(e){
         "amount" : useramount,
         "description" : userdescription,
         "category" : usercategory,
-        "id" : new Date().getTime()
+       // "id" : new Date().getTime()
          
    }
 
@@ -30,7 +30,7 @@ function onsubmit(e){
    let myobj_serial = JSON.stringify(expensedetails);
 
 
-   localStorage.setItem( expensedetails.id, myobj_serial);
+   localStorage.setItem( expensedetails.amount, myobj_serial);
 
    
 
