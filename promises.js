@@ -128,9 +128,9 @@ function updatelastuseractivitytime() {
 function updatetime() {
 
     Promise.all([create4post, updatelastuseractivitytime])
-        .then( async ([createpostresolves, updatelastuseractivitytimeresolves]) => {
+        .then(  ([createpostresolves, updatelastuseractivitytimeresolves]) => {
             
-            await updatelastuseractivitytimeresolves();
+            console.log (updatelastuseractivitytimeresolves());
 
             
 
