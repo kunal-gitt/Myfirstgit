@@ -1,202 +1,202 @@
 
-const posts = [{
+// const posts = [{
 
-    title: "Post one",
-    body: "This is post one",
-    createdAt: Date.now()
+//     title: "Post one",
+//     body: "This is post one",
+//     createdAt: Date.now()
 
-}, {
+// }, {
 
-    title: "Post two",
-    body: "This is post two",
-    createdAt: Date.now(),
+//     title: "Post two",
+//     body: "This is post two",
+//     createdAt: Date.now(),
 
-}];
-
-
-
-const user = [{
-
-    name: "kunal",
-    lastactivitytimeofuser: "4th of nov "
-}];
-
-let intervalid = 0;
-
-function getpost() {
-
-    setTimeout(() => {
-
-        let output = '';
-
-        posts.forEach((post) => {
-
-            output += `<li>${post.title} - last updated ${(Date.now() - post.createdAt) / 1000} seconds </li>`;
-
-        });
-
-        document.body.innerHTML = output;
-
-
-    }, 1000)
-
-}
-
-
-function createpost(post) {
-
-    return new Promise((resolve, reject) => {
-
-        setTimeout(() => {
-            posts.push({ ...post, createdAt: Date.now() });
-
-            const err = false;
-
-            if (!err) {
-                resolve();
-            }
-            else {
-
-                reject("Error: Something went wrong");
-            }
-
-        }, 2000);
+// }];
 
 
 
-    })
+// const user = [{
 
-}
+//     name: "kunal",
+//     lastactivitytimeofuser: "4th of nov "
+// }];
+
+// let intervalid = 0;
+
+// function getpost() {
+
+//     setTimeout(() => {
+
+//         let output = '';
+
+//         posts.forEach((post) => {
+
+//             output += `<li>${post.title} - last updated ${(Date.now() - post.createdAt) / 1000} seconds </li>`;
+
+//         });
+
+//         document.body.innerHTML = output;
 
 
-async function deletepost() {
+//     }, 1000)
 
-    await new Promise((resolve, reject) => {
+// }
 
-        setTimeout(() => {
 
-            if (posts.length > 0) {
+// function createpost(post) {
+
+//     return new Promise((resolve, reject) => {
+
+//         setTimeout(() => {
+//             posts.push({ ...post, createdAt: Date.now() });
+
+//             const err = false;
+
+//             if (!err) {
+//                 resolve();
+//             }
+//             else {
+
+//                 reject("Error: Something went wrong");
+//             }
+
+//         }, 2000);
+
+
+
+//     })
+
+// }
+
+
+// async function deletepost() {
+
+//     await new Promise((resolve, reject) => {
+
+//         setTimeout(() => {
+
+//             if (posts.length > 0) {
 
                 
-                resolve(posts.pop());
+//                 resolve(posts.pop());
 
-            } else {
+//             } else {
 
-                reject("Array is empty now");
-            }
-
-
-        }, 1000);
+//                 reject("Array is empty now");
+//             }
 
 
-
-    })
-
-
-}
-
-
-function updatelastuseractivitytime() {
-
-    return new Promise((resolve, reject) => {
-
-        setTimeout(() => {
-            const error = false;
-            if (!error) {
-                user.lastactivitytimeofuser = Date.now();
-                resolve(user.lastactivitytimeofuser)
-            }
-            else {
-
-                reject("Error in update last activity time ")
-            }
-
-
-        }, 3000);
+//         }, 1000);
 
 
 
-    })
+//     })
+
+
+// }
+
+
+// function updatelastuseractivitytime() {
+
+//     return new Promise((resolve, reject) => {
+
+//         setTimeout(() => {
+//             const error = false;
+//             if (!error) {
+//                 user.lastactivitytimeofuser = Date.now();
+//                 resolve(user.lastactivitytimeofuser)
+//             }
+//             else {
+
+//                 reject("Error in update last activity time ")
+//             }
+
+
+//         }, 3000);
+
+
+
+//     })
 
 
 
 
 
-}
+// }
 
 
-function updatetime() {
+// function updatetime() {
 
-    Promise.all([create4post, updatelastuseractivitytime])
-        .then(  ([createpostresolves, updatelastuseractivitytimeresolves]) => {
+//     Promise.all([create4post, updatelastuseractivitytime])
+//         .then(  ([createpostresolves, updatelastuseractivitytimeresolves]) => {
             
-            console.log (updatelastuseractivitytimeresolves());
+//             console.log (updatelastuseractivitytimeresolves());
 
             
 
-        }).catch((err) => { console.log(err) });
-}
+//         }).catch((err) => { console.log(err) });
+// }
 
 
-async function create4post(post) {
+// async function create4post(post) {
 
 
-    await new Promise((resolve, reject) => {
+//     await new Promise((resolve, reject) => {
 
-        setTimeout(() => {
+//         setTimeout(() => {
 
-            posts.push({ ...post, createdAt: Date.now() });
+//             posts.push({ ...post, createdAt: Date.now() });
 
-            const err = false;
+//             const err = false;
 
-            if (!err) {
+//             if (!err) {
 
-                resolve();
-            }
-            else {
+//                 resolve();
+//             }
+//             else {
 
-                reject("Error :Post 4 error");
-            }
+//                 reject("Error :Post 4 error");
+//             }
 
-        }, 3000);
+//         }, 3000);
 
-    })
-}
-
-
+//     })
+// }
 
 
 
-createpost({ title: "Post three", body: "this is post three" });
 
 
-create4post({ title: "Post 4", body: "this is post4" }).then(() => {
+// createpost({ title: "Post three", body: "this is post three" });
 
 
-    getpost();
-    deletepost().then(() => {
-        getpost();
-        deletepost().then(() => {
-            getpost();
-            deletepost().then(() => {
-                getpost();
-                deletepost().then(() => {
-                    getpost();
-                    deletepost().then(() => {console.log("running")})
-                        .catch((err) => {
-                            console.log("inside catch block", err);
-                        })
-                })
+// create4post({ title: "Post 4", body: "this is post4" }).then(() => {
 
-            })
-        })
-    })
 
-})
-    .catch((err => { console.log(err) }));
+//     getpost();
+//     deletepost().then(() => {
+//         getpost();
+//         deletepost().then(() => {
+//             getpost();
+//             deletepost().then(() => {
+//                 getpost();
+//                 deletepost().then(() => {
+//                     getpost();
+//                     deletepost().then(() => {console.log("running")})
+//                         .catch((err) => {
+//                             console.log("inside catch block", err);
+//                         })
+//                 })
 
-updatelastuseractivitytime();
-updatetime();
+//             })
+//         })
+//     })
+
+// })
+//     .catch((err => { console.log(err) }));
+
+// updatelastuseractivitytime();
+// updatetime();
 
 
 
