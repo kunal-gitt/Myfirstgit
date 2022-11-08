@@ -4,6 +4,19 @@ let form = document.getElementById("my-form");
 
 form.addEventListener('submit' , onsubmit);
 
+window.addEventListener("DOMContentLoaded", () =>{
+  axios.get("https://crudcrud.com/api/174a218e01824bada1d2407b3dc08ffb/appointmentdata")
+  .then(response =>{
+
+    console.log(response);
+
+    for(let i = 0 ; i < response.data.length ; i++){
+
+      showNewUserOnScreen(response.data[i]);
+    }
+  }).catch(err => console.log(err));
+} )
+
 
 function onsubmit(e){
  
@@ -48,34 +61,39 @@ function onsubmit(e){
       //showNewUserOnScreen(userdetails);
 
 
+     
 
- function showNewUserOnScreen(user) {
 
 
-    document.getElementById("username").value = "";
-    document.getElementById("email").value = "";
-    document.getAnimations('phone').value = "";
-
-             if(localStorage.getItem(user.email) !== null){
-
-                removefromscreen(user.email);
-             }
-            
-        
-            let parentNode = document.getElementById("listOfUser");
-            let childhtml = `<li id= ${user.email}> ${user.username} - ${user.email}
-                                    <button onClick = deleteUser('${user.email}')> Delete </button> 
-                                    <button onclick = editUser('${user.email}','${user.username}','${user.phone}')> Edit </button>
-                            </li>`;
-        
-        
-            parentNode.innerHTML = parentNode.innerHTML + childhtml;
-          }
-
+ 
 
         
     
 }
+
+function showNewUserOnScreen(user) {
+
+
+  document.getElementById("username").value = "";
+  document.getElementById("email").value = "";
+  document.getAnimations('phone').value = "";
+
+           if(localStorage.getItem(user.email) !== null){
+
+              removefromscreen(user.email);
+           }
+          
+      
+          let parentNode = document.getElementById("listOfUser");
+          let childhtml = `<li id= ${user.email}> ${user.username} - ${user.email}
+                                  <button onClick = deleteUser('${user.email}')> Delete </button> 
+                                  <button onclick = editUser('${user.email}','${user.username}','${user.phone}')> Edit </button>
+                          </li>`;
+      
+      
+          parentNode.innerHTML = parentNode.innerHTML + childhtml;
+        }
+
 
 
 function deleteUser(emailId) {
