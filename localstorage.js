@@ -87,7 +87,7 @@ function showNewUserOnScreen(user) {
           let parentNode = document.getElementById("listOfUser");
           let childhtml = `<li id= ${user._id}> ${user.username} - ${user.email}
                                   <button onClick = deleteUser('${user._id}')> Delete </button> 
-                                  <button onclick = editUser('${user.email}','${user.username}','${user.phone}')> Edit </button>
+                                  <button onclick = editUser('${user.email}','${user.username}','${user.phone}','${user._id}')> Edit </button>
                           </li>`;
       
       
@@ -109,13 +109,17 @@ function deleteUser(userId) {
   }
 
 
-  function editUser(emailId , username , phone){
+  function editUser(emailId , username , phone , userid){
+
+       
+        
 
          document.getElementById("username").value = username;
          document.getElementById("email").value = emailId;
          document.getAnimations('phone').value = phone;
+         
         
-         deleteUser(emailId);
+         deleteUser(userid);
 
 
   }
