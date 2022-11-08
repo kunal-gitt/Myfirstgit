@@ -28,16 +28,24 @@ function onsubmit(e){
 
       
 
+      axios.post("https://crudcrud.com/api/174a218e01824bada1d2407b3dc08ffb/appointmentdata" , userdetails)
+      .then((response) => {
+         showNewUserOnScreen(response.data);
+        console.log(response)})
+      .catch(err => {
+        document.body.innerHTML = document.body.innerHTML + "<h4> Something went wrong </h4>"; 
+        console.log(err)});
 
     
 
-      let myobj_serial = JSON.stringify(userdetails);
+
+      // let myobj_serial = JSON.stringify(userdetails);
 
       
-      localStorage.setItem( userdetails.email, myobj_serial);
+      // localStorage.setItem( userdetails.email, myobj_serial);
 
       
-      showNewUserOnScreen(userdetails);
+      //showNewUserOnScreen(userdetails);
 
 
 
