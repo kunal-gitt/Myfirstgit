@@ -85,8 +85,8 @@ function showNewUserOnScreen(user) {
           
       
           let parentNode = document.getElementById("listOfUser");
-          let childhtml = `<li id= ${user.email}> ${user.username} - ${user.email}
-                                  <button onClick = deleteUser('${user.email}')> Delete </button> 
+          let childhtml = `<li id= ${user._id}> ${user.username} - ${user.email}
+                                  <button onClick = deleteUser('${user._id}')> Delete </button> 
                                   <button onclick = editUser('${user.email}','${user.username}','${user.phone}')> Edit </button>
                           </li>`;
       
@@ -96,9 +96,15 @@ function showNewUserOnScreen(user) {
 
 
 
-function deleteUser(emailId) {
-    localStorage.removeItem(emailId);
-    removefromscreen(emailId);
+function deleteUser(userId) {
+
+  axios.delete(`https://crudcrud.com/api/174a218e01824bada1d2407b3dc08ffb/appointmentdata/${userId}`)
+  .then((response) =>{
+    removefromscreen(userId);
+    console.log(response)})
+  .catch(err => console.log(err));
+
+    
 
   }
 
@@ -114,10 +120,10 @@ function deleteUser(emailId) {
 
   }
 
-  function removefromscreen(emailId){
+  function removefromscreen(userId){
 
     let parentNode = document.getElementById("listOfUser");
-    let childnodetobedeleted = document.getElementById(emailId);
+    let childnodetobedeleted = document.getElementById(userId);
 
     if(childnodetobedeleted){
 
